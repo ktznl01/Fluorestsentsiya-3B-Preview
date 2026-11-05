@@ -1,0 +1,40 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Model weights (distributed via GitHub Releases, not git) ---
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# --- Base model (Apache-2.0, fetch from upstream) ---
+base/
+
+# --- Local training / evaluation artefacts ---
+data/
+train/
+bench/*
+!/bench/lech_prompts.jsonl
+!/bench/style_prompts.jsonl
+projects/
+logs/
+*.log
+*.bak
+*.bak_*
+*.tmp
+.DS_Store
+Thumbs.db
+
+# benchmark outputs
+stories/
+scores/
+reports/
