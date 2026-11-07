@@ -75,9 +75,17 @@ v0.2 vs v0.1: mean CJK +80.4%; rep4 −27.0%; duplicate sentence −84.4%; disti
 
 The chart is generated deterministically from [`bench/v0.2/final21_metrics.json`](bench/v0.2/final21_metrics.json); no image-generation model is used for the numbers.
 
-### Example outputs
+### Example outputs: v0.1 vs v0.2
 
-Three raw v0.2 outputs are kept in [`examples/v0.2/`](examples/v0.2/). They are not cherry-picked for length: the first is 746 Chinese characters, the second 3,045, and the third 1,286 before trimming. They illustrate the length variance discussed below.
+The original three examples are preserved under `examples/*_v0.1.md`; v0.2 was generated once from the same prompts and target lengths under `examples/*_v0.2.md`. The full prompts, settings, and metric table are in [`examples/README.md`](examples/README.md).
+
+| Prompt | v0.1 | v0.2 |
+|---|---|---|
+| 入冬 / 500 | 581 CJK, rep4 0.2270 | 308 CJK, rep4 0.0164 |
+| 药与酒 / 1,000 | 971 CJK, rep4 0.1791 | 432 CJK, rep4 0.0777 |
+| 空下来的手 / 2,000 | 1,837 CJK, rep4 0.4974 | 2,024 CJK, rep4 0.1212 |
+
+v0.2 has much lower exact repetition, but stops below the target on the 500- and 1,000-character prompts. The v0.1 files were produced by an earlier multi-pass/edited pipeline; this is an illustrative comparison, not a controlled length-matched experiment.
 
 ## Metric definitions
 
@@ -153,8 +161,10 @@ docs/
   changelog-v0.2.md
   legacy-v0.1.md                        preserved v0.1 report
 examples/
-  *.md                                  v0.1 examples
-  v0.2/                                 raw v0.2 model outputs
+  README.md                             v0.1/v0.2 prompts and comparison table
+  *_v0.1.md                             preserved v0.1 references
+  *_v0.2.md                             regenerated v0.2 comparisons
+  v0.2/                                 three raw v0.2 held-out outputs
 gguf/
   qwen25-3b-base-Q4_K_M.gguf              base Qwen2.5-3B-Instruct
   fluorestsentsiya-3b-preview-Q4_K_M.gguf v0.1

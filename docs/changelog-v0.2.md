@@ -7,6 +7,7 @@
 - v0.2 PEFT adapter (`adapters/fluorestsentsiya-3b-preview-v0.2/`) trained by continuing the v0.1 register adapter on 2k human-continuation data with offline teacher revisions.
 - v0.2 LoRA GGUF (`gguf/fluorestsentsiya-3b-preview-v0.2-lora-f16.gguf`) for base GGUF + `--lora`.
 - 21-sample model-only evaluation (`bench/v0.2/`), including a Corporate-style chart and per-sample metrics.
+- Three v0.1 reference examples preserved as `examples/*_v0.1.md`, plus v0.2 regenerations from the same prompts as `examples/*_v0.2.md` with a comparison table in `examples/README.md`.
 - Full paper-style report (`docs/paper-v0.2.md`) and model card (`docs/model-card-v0.2.md`).
 - Legacy v0.1 README preserved as `docs/legacy-v0.1.md`.
 

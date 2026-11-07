@@ -9,7 +9,7 @@ assets rather than in the git tree. This manifest describes the full working dis
 | `CITATION.cff` | 1.1 KB |
 | `LICENSE` | 2.6 KB |
 | `MANIFEST.md` | 3.5 KB |
-| `README.md` | 10.1 KB |
+| `README.md` | 10.7 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/README.md` | 5.3 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/adapter_config.json` | 1.2 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/adapter_model.safetensors` | 114.3 MB |
@@ -40,13 +40,17 @@ assets rather than in the git tree. This manifest describes the full working dis
 | `bench/v0.2/make_chart21_corporate.py` | 9.1 KB |
 | `checksums.sha256` | 732 B |
 | `config.json` | 5.1 KB |
-| `docs/changelog-v0.2.md` | 1.4 KB |
+| `docs/changelog-v0.2.md` | 1.6 KB |
 | `docs/legacy-v0.1.md` | 19.1 KB |
 | `docs/model-card-v0.2.md` | 2.6 KB |
 | `docs/paper-v0.2.md` | 12.2 KB |
-| `examples/01_winter_parting_500.md` | 2.3 KB |
-| `examples/02_illness_alcohol_1000.md` | 3.5 KB |
-| `examples/03_unemployment_love_2000.md` | 6.5 KB |
+| `examples/01_winter_parting_500_v0.1.md` | 2.3 KB |
+| `examples/01_winter_parting_500_v0.2.md` | 1.3 KB |
+| `examples/02_illness_alcohol_1000_v0.1.md` | 3.5 KB |
+| `examples/02_illness_alcohol_1000_v0.2.md` | 1.7 KB |
+| `examples/03_unemployment_love_2000_v0.1.md` | 6.5 KB |
+| `examples/03_unemployment_love_2000_v0.2.md` | 7.4 KB |
+| `examples/README.md` | 3.7 KB |
 | `examples/v0.2/01_chekhov_three.md` | 2.6 KB |
 | `examples/v0.2/02_dostoevsky_one.md` | 10.9 KB |
 | `examples/v0.2/03_chekhov_measures.md` | 4.5 KB |
@@ -74,4 +78,4 @@ assets rather than in the git tree. This manifest describes the full working dis
 | `scripts/style_stylo.py` | 3.1 KB |
 | `scripts/train_lora_3b.py` | 6.1 KB |
 
-68 files, 9.7 GB total.
+72 files, 9.7 GB total.
