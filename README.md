@@ -17,7 +17,7 @@ Fluorestsentsiya-3B-Preview is a 3.09B-parameter Chinese narrative model built b
 - **Legacy v0.1 report:** [`docs/legacy-v0.1.md`](docs/legacy-v0.1.md)
 - **Changelog:** [`docs/changelog-v0.2.md`](docs/changelog-v0.2.md)
 
-`adapters/` and `gguf/` are distributed as release assets rather than tracked in the git tree; `MANIFEST.md` describes the full distribution.
+`adapters/` and `gguf/` are release assets rather than tracked in the git tree; `MANIFEST.md` describes the full distribution. The v0.2 GitHub release includes the adapter ZIP and LoRA GGUF. The 1.93 GB base Q4_K_M GGUF is **not attached** to that release: GitHub returned HTTP 422 on upload. Use the Hugging Face base + PEFT, or convert the HF base to GGUF yourself.
 
 > **License.** Research use only, non-commercial. Training corpora are user-supplied and are not redistributed. Model weights and outputs must not be used commercially.
 
@@ -47,7 +47,7 @@ Fluorestsentsiya-3B-Preview is a 3.09B-parameter Chinese narrative model built b
 | Adapter | LoRA r=16, α=32, dropout=0.05, 29.9M parameters |
 | Adapter file | `adapters/fluorestsentsiya-3b-preview-v0.2/` |
 | Inference | base GGUF Q4_K_M + LoRA GGUF f16 |
-| Base GGUF | `gguf/qwen25-3b-base-Q4_K_M.gguf` |
+| Base GGUF | convert from Qwen2.5-3B-Instruct; not attached to v0.2 release |
 | LoRA GGUF | `gguf/fluorestsentsiya-3b-preview-v0.2-lora-f16.gguf` |
 | v0.1 GGUF | `gguf/fluorestsentsiya-3b-preview-Q4_K_M.gguf` |
 | Context | 8192 |
@@ -102,9 +102,11 @@ The metrics are surface diagnostics. They do not measure role consistency, causa
 
 ### 1. GGUF + LoRA (recommended, llama.cpp)
 
+Get a Qwen2.5-3B-Instruct Q4_K_M GGUF first (from Hugging Face, or convert the HF base). The base GGUF is not attached to the v0.2 release; the adapter and LoRA are.
+
 ```bash
 llama-server \
-  -m gguf/qwen25-3b-base-Q4_K_M.gguf \
+  -m <path>/qwen25-3b-base-Q4_K_M.gguf \
   --lora gguf/fluorestsentsiya-3b-preview-v0.2-lora-f16.gguf \
   -ngl 99 -c 8192 -t 8 -b 2048 -ub 512 -fa on \
   -ctk q8_0 -ctv q8_0 --jinja \
@@ -166,7 +168,7 @@ examples/
   *_v0.2.md                             regenerated v0.2 comparisons
   v0.2/                                 three raw v0.2 held-out outputs
 gguf/
-  qwen25-3b-base-Q4_K_M.gguf              base Qwen2.5-3B-Instruct
+  qwen25-3b-base-Q4_K_M.gguf              local base; convert from Qwen HF
   fluorestsentsiya-3b-preview-Q4_K_M.gguf v0.1
   fluorestsentsiya-3b-preview-v0.2-lora-f16.gguf
 scripts/                                data, training, evaluation, export

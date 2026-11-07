@@ -8,8 +8,8 @@ assets rather than in the git tree. This manifest describes the full working dis
 | `.gitignore` | 586 B |
 | `CITATION.cff` | 1.1 KB |
 | `LICENSE` | 2.6 KB |
-| `MANIFEST.md` | 3.5 KB |
-| `README.md` | 10.7 KB |
+| `MANIFEST.md` | 3.7 KB |
+| `README.md` | 11.2 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/README.md` | 5.3 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/adapter_config.json` | 1.2 KB |
 | `adapters/fluorestsentsiya-3b-preview-format/adapter_model.safetensors` | 114.3 MB |
