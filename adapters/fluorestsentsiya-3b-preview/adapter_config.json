@@ -1,9 +1,9 @@
-﻿{
+{
   "alora_invocation_tokens": null,
   "alpha_pattern": {},
   "arrow_config": null,
   "auto_mapping": null,
-  "base_model_name_or_path": "D:\\Fluorestsentsiya-3B-Preview\\base\\Qwen2.5-3B-Instruct",
+  "base_model_name_or_path": "Qwen/Qwen2.5-3B-Instruct",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,

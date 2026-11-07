@@ -25,6 +25,8 @@ train/
 bench/*
 !/bench/lech_prompts.jsonl
 !/bench/style_prompts.jsonl
+!/bench/v0.2/
+!/bench/v0.2/**
 projects/
 logs/
 *.log

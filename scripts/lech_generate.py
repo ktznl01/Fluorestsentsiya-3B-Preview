@@ -6,7 +6,7 @@ narrative elements + format rules) and must return a 600-800 word story. We keep
 the brief verbatim; only the sampling stack differs (local llama.cpp).
 
 Usage:
-  python lech_generate.py --endpoint http://127.0.0.1:8087 --tag filament-3b
+  python lech_generate.py --endpoint http://127.0.0.1:8087 --tag fluorestsentsiya-3b-preview
 """
 import argparse
 import os

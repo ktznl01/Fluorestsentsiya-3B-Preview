@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this model or code in academic work, please cite this repository."
-title: "Fluorestsentsiya-3B-Preview: a 3B Chinese narrative-writing model with a controllable old-translation register"
-version: 0.1
-date-released: 2026-11-05
+title: "Fluorestsentsiya-3B-Preview v0.2: A 3B Chinese Narrative Model at the 2,000-Character Frontier"
+version: 0.2
+date-released: 2026-11-07
 license: other
 license-url: "https://github.com/ktznl01/Fluorestsentsiya-3B-Preview/blob/main/LICENSE"
 repository-code: "https://github.com/ktznl01/Fluorestsentsiya-3B-Preview"
@@ -14,10 +14,11 @@ keywords:
   - LoRA
   - Qwen2.5
   - GGUF
-  - stylometry
+  - long-form generation
 abstract: >-
-  A rank-16 LoRA adapter on Qwen2.5-3B-Instruct that injects a controllable
-  Chinese old-translation register for narrative writing, released as a PEFT
-  adapter and a GGUF Q4_K_M checkpoint for llama.cpp. Evaluated with two-pass
-  scoring on the Lech Mazur Creative Story-Writing Benchmark, a POLLUX-style
-  criteria rubric, and Burrows's Delta stylometric fidelity.
+  A rank-16 LoRA adapter on Qwen2.5-3B-Instruct for Chinese narrative writing
+  in an old-translation register. v0.2 is evaluated on 21 held-out prompts with
+  model-only outputs trimmed at 2,000 Chinese characters: mean 1,497.7 characters,
+  11/21 at 2k, rep4 0.1827, duplicate-sentence rate 2.70%, distinct4 0.8173.
+  The release is a 3B draft generator, not a human-level writer; distinct4
+  improves by 9.0% over v0.1, below a literal +20% threshold.

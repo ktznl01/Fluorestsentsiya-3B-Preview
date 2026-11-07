@@ -1,8 +1,8 @@
 {
  "name": "Fluorestsentsiya-3B-Preview",
  "display_name": "Fluorestsentsiya-3B-Preview · 中文叙事写作小模型",
- "version": "v0.1",
- "date": "2026-11-04",
+ "version": "v0.2",
+ "date": "2026-11-07",
  "license": "non-commercial research only",
  "base_model": "Qwen/Qwen2.5-3B-Instruct",
  "base_license": "Apache-2.0",
@@ -38,6 +38,15 @@
    "top_p": 0.9,
    "repeat_penalty": 1.2,
    "note": "续写用 0.5（承接优先）；长文/逐拍用 0.7（长度优先）"
+  },
+  "v0_2_sampling": {
+   "temperature": 0.7,
+   "top_p": 0.9,
+   "repeat_penalty": 1.15,
+   "dry_multiplier": 0.8,
+   "dry_base": 1.75,
+   "dry_allowed_length": 2,
+   "dry_penalty_last_n": 2048
   }
  },
  "training": {
@@ -114,10 +123,71 @@
  },
  "method": "SFT stages + ORPO preference optimization (reference-free) + long-output boost",
  "files": {
+  "adapter_v0_1": "adapters/fluorestsentsiya-3b-preview",
+  "format_adapter_v0_1": "adapters/fluorestsentsiya-3b-preview-format",
+  "adapter_v0_2": "adapters/fluorestsentsiya-3b-preview-v0.2",
+  "base_gguf": "gguf/qwen25-3b-base-Q4_K_M.gguf",
+  "v0_1_gguf": "gguf/fluorestsentsiya-3b-preview-Q4_K_M.gguf",
+  "v0_2_lora_gguf": "gguf/fluorestsentsiya-3b-preview-v0.2-lora-f16.gguf",
+  "paper": "docs/paper-v0.2.md",
+  "model_card": "docs/model-card-v0.2.md",
+  "eval": "bench/v0.2/README.md",
+  "chart": "bench/v0.2/final21_bar_corporate.png",
   "adapter": "adapters/fluorestsentsiya-3b-preview",
-  "gguf": "gguf/fluorestsentsiya-3b-preview-Q4_K_M.gguf",
-  "format_adapter": "adapters/fluorestsentsiya-3b-preview-format"
+  "format_adapter": "adapters/fluorestsentsiya-3b-preview-format",
+  "gguf": "gguf/fluorestsentsiya-3b-preview-Q4_K_M.gguf"
  },
  "repository": "https://github.com/ktznl01/Fluorestsentsiya-3B-Preview",
- "homepage": "https://github.com/ktznl01/Fluorestsentsiya-3B-Preview"
+ "homepage": "https://github.com/ktznl01/Fluorestsentsiya-3B-Preview",
+ "description": "3B Chinese narrative-writing model; v0.2 21-sample model-only evaluation; local 3B inference only.",
+ "v0_2_evaluation": {
+  "n": 21,
+  "prompt_set": "21 held-out Chinese narrative openings (user corpus; not redistributed)",
+  "decoding": {
+   "temperature": 0.7,
+   "top_p": 0.9,
+   "repeat_penalty": 1.15,
+   "dry_multiplier": 0.8,
+   "dry_base": 1.75,
+   "dry_allowed_length": 2,
+   "dry_penalty_last_n": 2048,
+   "max_tokens": 2400
+  },
+  "trim": "2,000 Chinese characters on the last sentence boundary",
+  "model_only": true,
+  "results": {
+   "base": {
+    "mean_cjk": 1120.2,
+    "two_k_hit": 1,
+    "rep4": 0.0762,
+    "duplicate_sentence_rate": 0.0,
+    "distinct4": 0.9238
+   },
+   "v0_1": {
+    "mean_cjk": 830.1,
+    "two_k_hit": 4,
+    "rep4": 0.2503,
+    "duplicate_sentence_rate": 0.1732,
+    "distinct4": 0.7497
+   },
+   "v0_2": {
+    "mean_cjk": 1497.7,
+    "two_k_hit": 11,
+    "rep4": 0.1827,
+    "duplicate_sentence_rate": 0.027,
+    "distinct4": 0.8173
+   }
+  },
+  "relative_v0_2_vs_v0_1": {
+   "mean_cjk_pct": 80.4,
+   "rep4_pct": -27.0,
+   "duplicate_sentence_pct": -84.4,
+   "distinct4_pct": 9.0
+  },
+  "limits": [
+   "11/21 reach 1,800+ characters",
+   "distinct4 +9.0%, below +20%; human target 0.9534",
+   "role/causal not blind-rated at n=21"
+  ]
+ }
 }
